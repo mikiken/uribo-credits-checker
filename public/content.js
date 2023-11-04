@@ -18,10 +18,10 @@ function tableToCSV(tableObject) {
 }
 
 window.onload = function getGradesTable() {
-    const gradesTable = tableToCSV(document.getElementById('auto-table-4'));
+    const gradesTable = document.getElementById('auto-table-4');
 
     if (gradesTable != null) {
-        chrome.runtime.sendMessage({ gradesTable: gradesTable });
+        chrome.runtime.sendMessage({ gradesTable: tableToCSV(gradesTable) });
     }
     else {
         // TODO: 成績表示画面以外の場合、`sidepanel.js`にメッセージを送る
