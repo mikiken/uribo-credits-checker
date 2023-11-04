@@ -1,4 +1,5 @@
 'use strict';
+import * as dfd from "danfojs"
 
 // With background scripts you can communicate with sidepanel
 // and contentScript files.
@@ -9,5 +10,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.gradesTable) {
     const gradesTable = request.gradesTable;
     console.log(gradesTable);
+
+    const s = new dfd.Series([1, 3, 5, undefined, 6, 8])
+    console.log(s.index);
   }
 });
