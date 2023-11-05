@@ -68,4 +68,13 @@ function countGrades(gradesMatrix) {
   console.log('基礎教養科目: ' + basicEducation);
   console.log('総合教養科目: ' + generalEducation);
   console.log('高度教養科目: ' + advancedLiberal);
+
+  chrome.runtime.sendMessage({
+    type: 'gradesCount',
+    compulsory: compulsory,
+    electiveCompulsory: electiveCompulsory,
+    basicEducation: basicEducation,
+    generalEducation: generalEducation,
+    advancedLiberal: advancedLiberal
+  });
 }
