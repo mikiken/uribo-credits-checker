@@ -10,8 +10,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.gradesTable) {
     const gradesTable = request.gradesTable;
     console.log(gradesTable);
-
-    const s = new dfd.Series([1, 3, 5, undefined, 6, 8])
-    console.log(s.index);
+    let gradesTableCSV = new Blob([gradesTable], { type: "text/csv" });
+    const df = dfd.readCSV(gradesTableCSV);
+    console.log(df);
   }
 });
